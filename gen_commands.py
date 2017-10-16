@@ -25,14 +25,14 @@ slack_username = ""  # your slack username
 # boss metadata
 collection = 'Look_At_It'
 experiment = 'EXP1'
-channel = 'test'
+channel = 'annotate_1'
 
 # data_directory _with_ trailing slash (doesn't output correct paths on Windows)
 data_directory = "DATA/"
 
 # filename without extension (no '.tif')
 # <p:4> indicates the z index of the tif file, with up to 4 leading zeros
-file_name = "lookatit"
+file_name = "proof"
 
 # extension name for images, supported image types are PNG and TIFF
 # extension just needs to match the filename and can be any string (e.g.: ome, tif, png)
@@ -51,11 +51,11 @@ voxel_unit = 'micrometers'
 data_type = 'uint8'
 
 # pixel extent for images in x, y and number of total z slices
-data_dimensions = "1280 720 3"
+data_dimensions = "1280 720 2"
 
 # first inclusive, last _exclusive_ list of sections to ingest
 # integers, typically the same as ZZZZ "data_dimensions"
-zrange = [0, 3]
+zrange = [0, 2]
 
 # Number of workers to use
 # each worker loads additional 16 image files so watch out for out of memory errors
