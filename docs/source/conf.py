@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'NeuroData Annotate'
+project = u'NeuroDataAnnoation'
 copyright = u'2017, Richard Guo, Bijan Varjavand'
 author = u'Richard Guo, Bijan Varjavand'
 
