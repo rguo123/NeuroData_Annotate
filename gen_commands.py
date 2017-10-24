@@ -25,14 +25,14 @@ slack_username = ""  # your slack username
 # boss metadata
 collection = 'Look_At_It'
 experiment = 'EXP1'
-channel = 'annotate_1'
+channel = 'annotate_2'
 
 # data_directory _with_ trailing slash (doesn't output correct paths on Windows)
 data_directory = "DATA/"
 
 # filename without extension (no '.tif')
 # <p:4> indicates the z index of the tif file, with up to 4 leading zeros
-file_name = "proof"
+file_name = "Labels"
 
 # extension name for images, supported image types are PNG and TIFF
 # extension just needs to match the filename and can be any string (e.g.: ome, tif, png)
