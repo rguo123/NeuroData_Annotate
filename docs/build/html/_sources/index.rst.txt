@@ -43,9 +43,9 @@ Welcome to NeuroData Annotate's documentation!
 
   c. Navigate to the folder of you image volume, and select "open".
 
-  d. This should have changed your ImageJ canvas. Now, drag your volume from your folder into the canvas.
+  d. This should have changed your ImageJ canvas. Now, drag your volume (helloworld.tif) from your folder into the canvas.
 
-  e. In the popup window, make sure that "Resize canvas to fit stack" is checked.
+  e. In the popup window, make sure that "Resize canvas to fit stack" is checked. After clicking OK, your canvas should snap to your image.
 
   f. In your TrakEM2 properties, right click on "anything" in the template column and add a new "area_list".
 
@@ -54,15 +54,18 @@ Welcome to NeuroData Annotate's documentation!
 
   g. Drag the entire "anything" folder into "Unitled 0" in the middle column.
 
-  h. Right click the nested "anything" folder and add a "new area list".
+  h. Right click the nested "anything" folder inside "Untitled 0" and add a "new area list".
 
-  i. Annotate Your Data by drawing all over it.
+  .. figure:: images/final_area_list.png
+     :align: center
+
+  i. Annotate Your Data by drawing all over it. You can scroll to annotate different slices in your tif.
 
   j. When done, right click your canvas and select "Export" -> "Arealists as labels (tif)".
 
-  k. A black screen will appear - these are your annotatoins, don't worry if you can't see them. Save the annotations with cmd+s.
+  k. A black screen will appear - these are your annotations, don't worry if you can't see them. Save the annotations with cmd+s.
 
-  l. Your annotations are now held in your "DATA" folder.
+  l. Your annotations are now saved in your "DATA" folder under the name you gave them.
 
 7. To push annotations to the BOSS, edit ``gen_commands.py`` file and input annotation file parameters.
 
