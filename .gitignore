@@ -105,4 +105,7 @@ ENV/
 log.txt
 .vscode/
 
+.DS_Store
+docs/.DS_Store
+
 slack_token
