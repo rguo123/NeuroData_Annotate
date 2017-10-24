@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to NeuroData Annotation's documentation!
+Welcome to NeuroData Annotate's documentation!
 ================================================
 
 1. Clone annotation repo. In Terminal type:
