@@ -73,7 +73,6 @@ Welcome to NeuroData Annotate's documentation!
 
 9. Paste command line output into terminal.
 
-10. Pray it works.
 
 Indices and tables
 ==================
