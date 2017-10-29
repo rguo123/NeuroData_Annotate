@@ -1,0 +1,302 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to NeuroData Annotate’s documentation! &#8212; NeuroDataAnnoation 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-neurodata-annotate-s-documentation">
+<h1>Welcome to NeuroData Annotate’s documentation!<a class="headerlink" href="#welcome-to-neurodata-annotate-s-documentation" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Clone annotation repo. In Terminal type:</dt>
+<dd><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/rguo123/NeuroData_Annotate.git</span></code></dd>
+</dl>
+</li>
+<li>Install dependences by typing: <code class="docutils literal"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></li>
+<li>Get BOSS API token by logging in to <a class="reference external" href="https://api.boss.neurodata.io/">https://api.boss.neurodata.io/</a>. Note: You need resource manager permissions to upload data to the BOSS.</li>
+<li>Create <code class="docutils literal"><span class="pre">neurodata.cfg</span></code> file and insert BOSS token as shown below:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>Default<span class="o">]</span>
+<span class="nv">protocol</span> <span class="o">=</span> https
+<span class="nv">host</span> <span class="o">=</span> api.boss.neurodata.io
+<span class="hll"><span class="nv">token</span> <span class="o">=</span> INSERT TOKEN HERE
+</span></pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Pull data from BOSS by typing <code class="docutils literal"><span class="pre">python3</span> <span class="pre">NeuroDataResource.py</span></code> in terminal and following the input prompt.</li>
+</ol>
+<div class="figure align-center">
+<img alt="_images/ndr_input.png" src="_images/ndr_input.png" />
+</div>
+<div class="figure align-center">
+<img alt="_images/directories.png" src="_images/directories.png" />
+</div>
+<ol class="arabic simple" start="6">
+<li>Annotate with FIJI:</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Install onto your system using <a class="reference external" href="https://imagej.net/Fiji/Downloads/">https://imagej.net/Fiji/Downloads/</a>.</li>
+<li>Open FJII, and start a new blank TrakEM2.</li>
+</ol>
+<div class="figure align-center">
+<img alt="_images/new_blank.png" src="_images/new_blank.png" />
+</div>
+<ol class="loweralpha simple" start="3">
+<li>Navigate to the folder of your image volume and select “open”.</li>
+<li>This should have changed your ImageJ canvas. Now, drag your volume (helloworld.tif) from your folder into the canvas.</li>
+<li>In the popup window, make sure that “Resize canvas to fit stack” is checked. After clicking OK, your canvas should snap to your image.</li>
+<li>In your TrakEM2 properties, right click on “anything” in the template column and add a new “area_list”.</li>
+</ol>
+<div class="figure align-center">
+<img alt="_images/new_area_list.png" src="_images/new_area_list.png" />
+</div>
+<ol class="loweralpha simple" start="7">
+<li>Drag the entire “anything” folder into “Unitled 0” in the middle column.</li>
+<li>Right click the nested “anything” folder inside “Untitled 0” and add a “new area list”.</li>
+</ol>
+<div class="figure align-center">
+<img alt="_images/final_area_list.png" src="_images/final_area_list.png" />
+</div>
+<ol class="lowerroman simple">
+<li>Annotate Your Data by drawing all over it. You can scroll to annotate different slices in your tif.</li>
+</ol>
+<ol class="loweralpha simple" start="10">
+<li>When done, right click your canvas and select “Export” -&gt; “Arealists as labels (tif)”.</li>
+</ol>
+<p>NOTE: At any point, you can export your annotations as an xml by the same method listed above. Opening the xml file will start you where you left off.</p>
+<ol class="loweralpha simple" start="11">
+<li>A black screen will appear - these are your annotations, don’t worry if you can’t see them.</li>
+<li>Save your annotations in the correct directory <em>with the same name</em>, an example given below.</li>
+</ol>
+<div class="figure align-center">
+<img alt="_images/annotation_file.png" src="_images/annotation_file.png" />
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>To push annotations to the BOSS, run <code class="docutils literal"><span class="pre">gen_commands.py</span></code>.</li>
+<li>Paste command line output into terminal. If this doesn’t work, you will probably have to change some parameters in <code class="docutils literal"><span class="pre">gen_commands.py</span></code>. Below is a list of all parameters:</li>
+</ol>
+<div class="section" id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="18%" />
+<col width="6%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameters</th>
+<th class="head">Description</th>
+<th class="head">Required</th>
+<th class="head">Tips and Examples</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>script</td>
+<td>Path to ingest_large_vol.py script</td>
+<td>Yes</td>
+<td>Should not have to change.</td>
+</tr>
+<tr class="row-odd"><td>source_type</td>
+<td>Where the data is being ingested from</td>
+<td>Yes</td>
+<td>Either <code class="docutils literal"><span class="pre">s3</span></code> or <code class="docutils literal"><span class="pre">local</span></code>.</td>
+</tr>
+<tr class="row-even"><td>s3_bucket_name</td>
+<td>AWS S3 Bucket name</td>
+<td>No</td>
+<td>Only specify if source_type is <code class="docutils literal"><span class="pre">s3</span></code></td>
+</tr>
+<tr class="row-odd"><td>aws_profile</td>
+<td>AWS Profile</td>
+<td>No</td>
+<td>Only specify if source_type is <code class="docutils literal"><span class="pre">s3</span></code>. <a class="reference external" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html">AWS Profile Help</a></td>
+</tr>
+<tr class="row-even"><td>boss_config_file</td>
+<td>Path and filename of BOSS API token</td>
+<td>Yes</td>
+<td>Should not have to change.</td>
+</tr>
+<tr class="row-odd"><td>slack_token</td>
+<td>Slack API token</td>
+<td>No</td>
+<td>Use if you want slack notifiction once ingest is finished.</td>
+</tr>
+<tr class="row-even"><td>slack_username</td>
+<td>Slack username</td>
+<td>No</td>
+<td>Use if you want slack notification once ingest is finished.</td>
+</tr>
+<tr class="row-odd"><td>collection</td>
+<td>BOSS collection name</td>
+<td>Yes</td>
+<td>You need permission for existing BOSS collections. Specifying a collection not in the BOSS will create a new collection (again, need permissions).</td>
+</tr>
+<tr class="row-even"><td>experiment</td>
+<td>BOSS experiment name</td>
+<td>Yes</td>
+<td>See <code class="docutils literal"><span class="pre">collection</span></code> input.</td>
+</tr>
+<tr class="row-odd"><td>channel</td>
+<td>BOSS channel name</td>
+<td>Yes</td>
+<td>See <code class="docutils literal"><span class="pre">collection</span></code> input.</td>
+</tr>
+<tr class="row-even"><td>data_directory</td>
+<td>Directory data is stored in</td>
+<td>Yes</td>
+<td>Format: <code class="docutils literal"><span class="pre">Path/To/Data/</span></code></td>
+</tr>
+<tr class="row-odd"><td>file_name</td>
+<td>Filename of data without file extension</td>
+<td>Yes</td>
+<td>Can specify which z slices you want for tif files. Example: TODO.</td>
+</tr>
+<tr class="row-even"><td>file_format</td>
+<td>Extension of data file</td>
+<td>Yes</td>
+<td>Example: <code class="docutils literal"><span class="pre">tif</span></code>, <code class="docutils literal"><span class="pre">png</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>z_step</td>
+<td>Increment of filename numbering</td>
+<td>Yes</td>
+<td>Typically keep at 1.</td>
+</tr>
+<tr class="row-even"><td>voxel_size</td>
+<td>Physical dimensions of each voxel</td>
+<td>Yes</td>
+<td>Typically keep at <code class="docutils literal"><span class="pre">1</span> <span class="pre">1</span> <span class="pre">1</span></code>. This just determines some BOSS metadata mostly.</td>
+</tr>
+<tr class="row-odd"><td>voxel_unit</td>
+<td>Physical unit for voxel size</td>
+<td>Yes</td>
+<td>Options: nanometers, micrometers, millimeters, centimeters.</td>
+</tr>
+<tr class="row-even"><td>data_type</td>
+<td>Data type of image</td>
+<td>Yes</td>
+<td><code class="docutils literal"><span class="pre">uint8</span></code> or <code class="docutils literal"><span class="pre">uint16</span></code> for data, <code class="docutils literal"><span class="pre">uint64</span></code> for annotations. Bug: Have to specify in <code class="docutils literal"><span class="pre">ingest_large_vol.py</span></code> the datatype as well.</td>
+</tr>
+<tr class="row-odd"><td>data_dimensions</td>
+<td>X, Y, Z, dimensions of data</td>
+<td>Yes</td>
+<td>Format: X Y Z (e.g. <code class="docutils literal"><span class="pre">1280</span> <span class="pre">720</span> <span class="pre">5</span></code>).</td>
+</tr>
+<tr class="row-even"><td>z_range</td>
+<td>List of z slices to ingest</td>
+<td>Yes</td>
+<td>First inclusive, last exclusive (e.g. <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">5]</span></code>).</td>
+</tr>
+<tr class="row-odd"><td>workers</td>
+<td>Number of workers to use</td>
+<td>Yes</td>
+<td>Potential memory errors.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">NeuroDataAnnoation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Richard Guo, Bijan Varjavand.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
