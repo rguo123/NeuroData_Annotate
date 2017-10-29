@@ -63,9 +63,17 @@ Welcome to NeuroData Annotate's documentation!
 
   j. When done, right click your canvas and select "Export" -> "Arealists as labels (tif)".
 
-  k. A black screen will appear - these are your annotations, don't worry if you can't see them. Save the annotations with cmd+s.
+  NOTE: At any point, you can export your annotations as an xml by the same method listed above. Opening the xml file will start you where you left off.
 
-  l. Your annotations are now saved in your "DATA" folder under the name you gave them.
+  k. A black screen will appear - these are your annotations, don't worry if you can't see them.
+
+  l. Create a new directory according to your channel, and save your annotation in it according to the screenshots below. Also, drag the config.cfg into your folder.
+
+  .. figure:: images/final_area_list.png
+      :align: center
+
+  .. figure:: images/final_area_list.png
+      :align: center
 
 7. To push annotations to the BOSS, edit ``gen_commands.py`` file and edit all necessary `ingest_large_vol` parameters. Below is a list of all parameters:
 
