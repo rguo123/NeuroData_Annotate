@@ -75,7 +75,7 @@ Welcome to NeuroData Annotate's documentation!
   .. figure:: images/final_area_list.png
       :align: center
 
-7. To push annotations to the BOSS, edit ``gen_commands.py`` file and edit all necessary `ingest_large_vol` parameters. Below is a list of all parameters:
+7. To push annotations to the BOSS, run ``gen_commands.py`` file and input the directory to your annotations, as well as the file name. Below is a list of all parameters:
 
 Parameters
 ~~~~~~~~~~
@@ -123,9 +123,7 @@ Parameters
 | workers          |  Number of workers to use               |  Yes        |  Potential memory errors.                                                                                                                               |
 +------------------+-----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-8. Once all inputs are filled out, type ``python3 gen_commands.py`` in terminal.
-
-9. Paste command line output into terminal.
+8. Paste command line output into terminal.
 
 
 Indices and tables
