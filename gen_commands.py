@@ -1,12 +1,25 @@
 #!/usr/bin/env python
 
 import shlex
+import configparser
+import numpy as np
+from  skimage import io
+import os
 
 """ Script to generate ingest commands for ingest program """
 """ Once generated, copy commands to terminal and run them """
 
 """ Recommend copy this to a new location for editing """
 
+def get_validated_user_input(prompt, type_):
+    while True:
+        ui = input(prompt)
+        if (type(ui) == type(type_)):
+            break
+        else:
+            print("Invalid input, please try again\n")
+            continue
+    return ui
 
 script = "ingest_large_vol.py"
 
@@ -23,47 +36,49 @@ slack_token = ""  # Slack token for sending Slack messages
 slack_username = ""  # your slack username
 
 # boss metadata
-collection = 'Look_At_It'
-experiment = 'EXP1'
-channel = 'annotate_2'
 
-# data_directory _with_ trailing slash (doesn't output correct paths on Windows)
-data_directory = "DATA/"
+def cast_type(data, dtype):
+    #print('Initial Type: ' + str(data.dtype))
+    #data = data.astype(dtype)
+    data[data>0] = 254
+    #print('Fixed Type: ' + str(data.dtype))
+    return data
 
-# filename without extension (no '.tif')
-# <p:4> indicates the z index of the tif file, with up to 4 leading zeros
-file_name = "Labels"
+config = configparser.ConfigParser()
+config.read('config.cfg')
 
-# extension name for images, supported image types are PNG and TIFF
-# extension just needs to match the filename and can be any string (e.g.: ome, tif, png)
-file_format = 'tif'
-
-# increment of filename numbering (always increment in steps of 1 in the boss, typically will be '1')
-z_step = '1'
-
-# float or int supported
-voxel_size = '1 1 1'
-
-# nanometers/micrometers/millimeters/centimeters
-voxel_unit = 'micrometers'
-
-# uint8 or uint16 for image channels, uint64 for annotations
+collection=config['ANN_METADATA']['collection']
+experiment=config['ANN_METADATA']['experiment']
+channel=config['ANN_METADATA']['channel']
+data_directory=config['ANN_METADATA']['path']
+file_name=config['FILENAME']['ann_name'].split('.')[0]
+file_format=config['FILENAME']['ann_name'].split('.')[1]
+####################################
 data_type = 'uint8'
 
-# pixel extent for images in x, y and number of total z slices
-data_dimensions = "1280 720 2"
+data = io.imread(data_directory+file_name+'.'+file_format)
+cast_data = cast_type(data, data_type)
+io.imsave(data_directory+file_name+'_0.'+file_format, cast_data)
 
-# first inclusive, last _exclusive_ list of sections to ingest
-# integers, typically the same as ZZZZ "data_dimensions"
-zrange = [0, 2]
+####################################
+'''data_dimensions'''
+x,y,z = config['FILENAME']['ann_name'].split('.')[0].split('_')[:]#1x3 vector, x = '0-1280', y = '0-720', z = '0-2'
+x1 = str(int(x.split('-')[1])-int(x.split('-')[0]))
+y1 = str(int(y.split('-')[1])-int(y.split('-')[0]))
+z1 = str(int(z.split('-')[1])-int(z.split('-')[0]))
+data_dimensions = x1+' '+y1+' '+z1
+####################################
+zrange = [int(z.split('-')[0]),int(z.split('-')[1])]
+####################################
 
-# Number of workers to use
-# each worker loads additional 16 image files so watch out for out of memory errors
+'''DONT TOUCH BELOW HERE PLEASE'''
+z_step = '1'
+voxel_size = '1 1 1'
+voxel_unit = 'micrometers'
+
 workers = 1
 
-
 """ Code to generate the commands """
-
 
 def gen_comm(zstart, zend):
     cmd = "python3 " + script + " "
@@ -120,9 +135,12 @@ mem_tot = mem_per_w * workers
 print('# Expected total memory usage: {:.1f} GB'.format(mem_tot))
 
 
-cmd = gen_comm(zrange[0], zrange[1])
-cmd += ' --create_resources '
-print('\n' + cmd + '\n')
+
+
+
+#cmd = gen_comm(zrange[0], zrange[1])
+#cmd += ' --create_resources '
+#print('\n' + cmd + '\n')
 
 for worker in range(workers):
     start_z = max((worker * range_per_worker +
@@ -137,4 +155,7 @@ for worker in range(workers):
     end_z = min(zrange[1], next_z)
 
     cmd = gen_comm(start_z, end_z)
+    cmd += ' --create_resources '
     print(cmd)
+    print('\n')
+    os.system(cmd)
