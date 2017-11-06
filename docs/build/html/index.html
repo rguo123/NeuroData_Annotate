@@ -236,6 +236,33 @@
 </table>
 </div>
 </div>
+<div class="section" id="dockered-approach">
+<h1>Dockered Approach!<a class="headerlink" href="#dockered-approach" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Install Docker by following instructions here: <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker Installation</a></li>
+</ol>
+<p>2. In terminal, type the following command:
+<code class="docutils literal"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">rguo123/nddannotate</span></code></p>
+<p>3. Start NeuroData_Annotate Container by typing in terminal
+<code class="docutils literal"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">rguo123/annotate</span></code>.</p>
+<ol class="arabic simple" start="4">
+<li>You should now be in the docker container’s bash shell.</li>
+<li>Use the above instructions to pull data with NeuroData Resource.</li>
+</ol>
+<p>6. To copy data out of the container, use the following command:
+<code class="docutils literal"><span class="pre">docker</span> <span class="pre">cp</span> <span class="pre">CONTAINER:SRC_Path</span> <span class="pre">DEST_Path</span></code>.
+Use this to copy your BOSS data onto your computer.</p>
+<ol class="arabic simple" start="7">
+<li>Annotate the data following the Fiji instructions above.</li>
+</ol>
+<p>8. Copy annotations back into docker container when you are ready with the command
+<code class="docutils literal"><span class="pre">docker</span> <span class="pre">cp</span> <span class="pre">SOURCE_PATH</span> <span class="pre">CONTAINER:Dest_Path</span></code></p>
+<p>9. Reenter your container with the command
+<code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">container_id</span> <span class="pre">/bin/bash&quot;</span></code></p>
+<ol class="arabic simple" start="10">
+<li>Run ingest_large_vol commands to successfully push your data to the BOSS.</li>
+</ol>
+</div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">

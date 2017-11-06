@@ -128,7 +128,33 @@ Parameters
 +------------------+-----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
+Dockered Approach!
+================================================
+1. Install Docker by following instructions here: `Docker Installation <https://docs.docker.com/engine/installation/>`_
 
+2. In terminal, type the following command:
+``docker pull rguo123/nddannotate``
+
+3. Start NeuroData_Annotate Container by typing in terminal
+``docker run -it rguo123/annotate``.
+
+4. You should now be in the docker container's bash shell.
+
+5. Use the above instructions to pull data with NeuroData Resource.
+
+6. To copy data out of the container, use the following command:
+``docker cp CONTAINER:SRC_Path DEST_Path``.
+Use this to copy your BOSS data onto your computer.
+
+7. Annotate the data following the Fiji instructions above.
+
+8. Copy annotations back into docker container when you are ready with the command
+``docker cp SOURCE_PATH CONTAINER:Dest_Path``
+
+9. Reenter your container with the command
+``docker exec -it container_id /bin/bash"``
+
+10. Run ingest_large_vol commands to successfully push your data to the BOSS.
 
 Indices and tables
 ==================
